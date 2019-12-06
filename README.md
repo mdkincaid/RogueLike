@@ -1,3 +1,3 @@
 # RogueLike
 
-Following along with this [tutorial](https://roguesharp.wordpress.com/) to build a simple roguelike game.
+Following along with [this](https://roguesharp.wordpress.com/) tutorial to build a simple roguelike game.
