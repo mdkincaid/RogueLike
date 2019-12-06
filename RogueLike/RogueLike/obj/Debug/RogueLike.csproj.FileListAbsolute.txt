@@ -1,0 +1,14 @@
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\terminal8x8.png
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\RogueLike.exe.config
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\RogueLike.exe
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\RogueLike.pdb
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\OpenTK.dll
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\RLNET.dll
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\RogueSharp.dll
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\OpenTK.xml
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\bin\Debug\OpenTK.dll.config
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.csprojAssemblyReference.cache
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.csproj.CoreCompileInputs.cache
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.csproj.CopyComplete
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.exe
+C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.pdb
