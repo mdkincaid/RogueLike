@@ -21,7 +21,10 @@ namespace RogueLike.Core
         public static RLColor WallFov = Palette.SecondaryLighter;
 
         public static RLColor TextHeading = Palette.DbLight;
+        public static RLColor Text = Palette.DbLight;
+        public static RLColor Gold = Palette.DbSun;
 
         public static RLColor Player = Palette.DbLight;
+
     }
 }
