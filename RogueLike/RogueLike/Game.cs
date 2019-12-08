@@ -45,6 +45,7 @@ namespace RogueLike
         public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
         public static IRandom Random { get; private set; }
+        public static MessageLog MessageLog { get; private set; }
 
         public static void Main()
         {
@@ -54,15 +55,16 @@ namespace RogueLike
             string fontFileName = "terminal8x8.png";
             string consoleTitle = $"RogueLike - Level 1 - Seed {seed}";
 
+            MessageLog = new MessageLog();
+            MessageLog.Add("The rogue arrives on level 1");
+            MessageLog.Add($"Level created with seed '{seed}'");
+
             _rootConsole = new RLRootConsole(fontFileName, _screenWidth, _screenHeight, 8, 8, 1f, consoleTitle);
 
             _mapConsole = new RLConsole(_mapWidth, _mapHeight);
             _messageConsole = new RLConsole(_messageWidth, _messageHeight);
             _statConsole = new RLConsole(_statWidth, _statHeight);
             _inventoryConsole = new RLConsole(_inventoryWidth, _inventoryHeight);
-
-            _messageConsole.SetBackColor(0, 0, _messageWidth, _messageHeight, Palette.DbDeepWater);
-            _messageConsole.Print(1, 1, "Messages", Colors.TextHeading);
 
             _statConsole.SetBackColor(0, 0, _statWidth, _statHeight, Palette.DbOldStone);
             _statConsole.Print(1, 1, "Stats", Colors.TextHeading);
@@ -122,6 +124,7 @@ namespace RogueLike
             {
                 DungeonMap.Draw(_mapConsole);
                 Player.Draw(_mapConsole, DungeonMap);
+                MessageLog.Draw(_messageConsole);
 
                 RLConsole.Blit(_mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight);
                 RLConsole.Blit(_statConsole, 0, 0, _statWidth, _statHeight, _rootConsole, _mapWidth, 0);
