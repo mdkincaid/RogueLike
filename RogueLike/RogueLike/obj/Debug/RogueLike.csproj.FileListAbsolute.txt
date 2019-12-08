@@ -12,3 +12,16 @@ C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.csp
 C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.csproj.CopyComplete
 C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.exe
 C:\Users\KincaidM1\Desktop\roguelike\RogueLike\RogueLike\obj\Debug\RogueLike.pdb
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\terminal8x8.png
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\RogueLike.exe.config
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\RogueLike.exe
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\RogueLike.pdb
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\OpenTK.dll
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\RLNET.dll
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\RogueSharp.dll
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\OpenTK.xml
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\bin\Debug\OpenTK.dll.config
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\obj\Debug\RogueLike.csprojAssemblyReference.cache
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\obj\Debug\RogueLike.csproj.CopyComplete
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\obj\Debug\RogueLike.exe
+C:\Users\Matt.Kincaid\Source\Repos\mdkincaid\RogueLike\RogueLike\RogueLike\obj\Debug\RogueLike.pdb

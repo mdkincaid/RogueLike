@@ -8,6 +8,7 @@ using RLNET;
 
 using RogueLike.Core;
 using RogueLike.Systems;
+using RogueSharp.Random;
 
 namespace RogueLike
 {
@@ -38,13 +39,20 @@ namespace RogueLike
         private static readonly int _inventoryHeight = 11;
         private static RLConsole _inventoryConsole;
 
-        public static Player Player { get; private set; }
+        private static bool _renderRequired = true;
+
+        public static CommandSystem CommandSystem { get; private set; }
+        public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
+        public static IRandom Random { get; private set; }
 
         public static void Main()
         {
+            int seed = (int)DateTime.UtcNow.Ticks;
+            Random = new DotNetRandom(seed);
+
             string fontFileName = "terminal8x8.png";
-            string consoleTitle = "RogueLike - Level 1";
+            string consoleTitle = $"RogueLike - Level 1 - Seed {seed}";
 
             _rootConsole = new RLRootConsole(fontFileName, _screenWidth, _screenHeight, 8, 8, 1f, consoleTitle);
 
@@ -62,12 +70,11 @@ namespace RogueLike
             _inventoryConsole.SetBackColor(0, 0, _inventoryWidth, _inventoryHeight, Palette.DbWood);
             _inventoryConsole.Print(1, 1, "Inventory", Colors.TextHeading);
 
-            Player = new Player();
-
-            MapGenerator mapGenerator = new MapGenerator(_mapWidth, _mapHeight);
+            MapGenerator mapGenerator = new MapGenerator(_mapWidth, _mapHeight, 20, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
-
             DungeonMap.UpdatePlayerFieldOfView();
+
+            CommandSystem = new CommandSystem();
 
             _rootConsole.Update += OnRootConsoleUpdate;
             _rootConsole.Render += OnRootConsoleRender;
@@ -76,20 +83,55 @@ namespace RogueLike
 
         private static void OnRootConsoleUpdate(object sender, UpdateEventArgs e)
         {
+            bool didPlayerAct = false;
+            RLKeyPress keyPress = _rootConsole.Keyboard.GetKeyPress();
 
+            if (keyPress != null)
+            {
+                if (keyPress.Key == RLKey.Up)
+                {
+                    didPlayerAct = CommandSystem.MovePlayer(Direction.Up);
+                }
+                else if (keyPress.Key == RLKey.Down)
+                {
+                    didPlayerAct = CommandSystem.MovePlayer(Direction.Down);
+                }
+                else if (keyPress.Key == RLKey.Left)
+                {
+                    didPlayerAct = CommandSystem.MovePlayer(Direction.Left);
+                }
+                else if (keyPress.Key == RLKey.Right)
+                {
+                    didPlayerAct = CommandSystem.MovePlayer(Direction.Right);
+                }
+                else if (keyPress.Key == RLKey.Escape)
+                {
+                    _rootConsole.Close();
+                }
+            }
+
+            if (didPlayerAct)
+            {
+                _renderRequired = true;
+            }
         }
 
         private static void OnRootConsoleRender(object sender, UpdateEventArgs e)
         {
-            DungeonMap.Draw(_mapConsole);
-            Player.Draw(_mapConsole, DungeonMap);
+            if (_renderRequired)
+            {
+                DungeonMap.Draw(_mapConsole);
+                Player.Draw(_mapConsole, DungeonMap);
 
-            RLConsole.Blit(_mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight);
-            RLConsole.Blit(_statConsole, 0, 0, _statWidth, _statHeight, _rootConsole, _mapWidth, 0);
-            RLConsole.Blit(_messageConsole, 0, 0, _messageWidth, _messageHeight, _rootConsole, 0, _screenHeight - _messageHeight);
-            RLConsole.Blit(_inventoryConsole, 0, 0, _inventoryWidth, _inventoryHeight, _rootConsole, 0, 0);
+                RLConsole.Blit(_mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight);
+                RLConsole.Blit(_statConsole, 0, 0, _statWidth, _statHeight, _rootConsole, _mapWidth, 0);
+                RLConsole.Blit(_messageConsole, 0, 0, _messageWidth, _messageHeight, _rootConsole, 0, _screenHeight - _messageHeight);
+                RLConsole.Blit(_inventoryConsole, 0, 0, _inventoryWidth, _inventoryHeight, _rootConsole, 0, 0);
 
-            _rootConsole.Draw();
+                _rootConsole.Draw();
+
+                _renderRequired = false;
+            }
         }
     }
 }
