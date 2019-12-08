@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using RogueLike.Core;
+using RogueLike.Monsters;
 using RogueSharp;
+using RogueSharp.DiceNotation;
 
 namespace RogueLike.Systems
 {
@@ -93,6 +95,8 @@ namespace RogueLike.Systems
 
             PlacePlayer();
 
+            PlaceMonsters();
+
             return _map;
         }
 
@@ -136,6 +140,29 @@ namespace RogueLike.Systems
             for (int y = Math.Min(yStart, yEnd); y <= Math.Max(yStart, yEnd); y++)
             {
                 _map.SetCellProperties(xPosition, y, true, true);
+            }
+        }
+
+        private void PlaceMonsters()
+        {
+            foreach (var room in _map.Rooms)
+            {
+                if (Dice.Roll("1D10") < 7)
+                {
+                    var numberOfMonsters = Dice.Roll("1D4");
+                    for (int i = 0; i < numberOfMonsters; i++)
+                    {
+                        Point randomRoomLocation = (Point)_map.GetRandomWalkableLocationInRoom(room);
+
+                        if (randomRoomLocation != null)
+                        {
+                            var monster = Kobold.Create(1);
+                            monster.X = randomRoomLocation.X;
+                            monster.Y = randomRoomLocation.Y;
+                            _map.AddMonster(monster);
+                        }
+                    }
+                }
             }
         }
     }

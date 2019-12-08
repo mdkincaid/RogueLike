@@ -26,5 +26,6 @@ namespace RogueLike.Core
 
         public static RLColor Player = Palette.DbLight;
 
+        public static RLColor KoboldColor = Palette.DbBrightWood;
     }
 }
